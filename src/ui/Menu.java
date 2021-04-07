@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import exceptions.IDNumberException;
+import exceptions.UnderAgeException;
 import model.MiniMarket;
 
 public class Menu {
@@ -33,8 +35,17 @@ public class Menu {
 		int type = Integer.parseInt(br.readLine());
 		System.out.println("Digite el numero de identificación:");
 		int id = Integer.parseInt(br.readLine());
-		boolean added = miniMarket.addPerson(type, id);
-		return added? "Se ha registrado exitosamente el ingreso": "No ha sido posible registrar el ingreso";
+		boolean added = false;
+		try {
+			added = miniMarket.addPerson(type, id);
+		} catch (UnderAgeException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IDNumberException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return added? "Se ha registrado exitosamente el ingreso" : "No ha sido posible registrar el ingreso";
 	}
 	
 	public void doOperation(int choice) {
@@ -51,7 +62,7 @@ public class Menu {
 			}
 				break;
 			case SHOW_TOTAL_PEOPLE:
-				System.out.println(miniMarket.getContAttempts()+" han intentado ingresar al minimercado.");
+				System.out.println(miniMarket.getContAttempts()+" personas han intentado ingresar al minimercado.");
 				break;
 			case EXIT:
 				break;
