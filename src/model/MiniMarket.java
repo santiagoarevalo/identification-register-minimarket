@@ -33,7 +33,7 @@ public class MiniMarket {
 				throw new UnderAgeException();
 			}
 			else if((penultimate%2 == 0 && dayOfMonth%2 == 0) || (penultimate%2 != 0 && dayOfMonth%2 != 0)) {
-				throw new IDNumberException(dayOfMonth, penultimate);
+				throw new IDNumberException(dayOfMonth, penultimate); 
 			}
 			added = people.add(newPerson);
 		}
