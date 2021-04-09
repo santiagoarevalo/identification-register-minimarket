@@ -38,20 +38,20 @@ public class MiniMarketTest {
 		int type = 1;
 		int number = 1002839617;
 		
-		boolean added = true;
+		//boolean added = true;
 		try {
-			added = m.addPerson(type, number);
+			m.addPerson(type, number);
+			fail();
 		} catch (UnderAgeException e) {
 			// TODO Auto-generated catch block
+			//assertFalse(added);
+			ArrayList<Person> people = m.getPeople();
+			assertEquals(0, people.size());
 			e.printStackTrace();
 		} catch (IDNumberException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
-		assertFalse(added);
-		
-		ArrayList<Person> people = m.getPeople();
-		assertEquals(0, people.size());
 	}
 	
 	@Test
@@ -61,19 +61,18 @@ public class MiniMarketTest {
 		int type = 3;
 		int number = 1008867657;
 		
-		boolean added = true;
+		//boolean added = true;
 		try {
-			added = m.addPerson(type, number);
+			m.addPerson(type, number);
 		} catch (UnderAgeException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IDNumberException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//assertFalse(added);
+			ArrayList<Person> people = m.getPeople();
+			assertEquals(0, people.size());
+			//e.printStackTrace();
 		}
-		assertFalse(added);
-		
-		ArrayList<Person> people = m.getPeople();
-		assertEquals(0, people.size());
 	}
 }
