@@ -40,4 +40,8 @@ public class MiniMarket {
 		
 		return added;
 	}
+
+	public ArrayList<Person> getPeople() {
+		return people;
+	}
 }
