@@ -20,12 +20,11 @@ public class MiniMarket {
 		return contAttempts;
 	}
 
-	public boolean addPerson(int documentationType, int id) throws UnderAgeException, IDNumberException {
+	public boolean addPerson(int documentationType, String id) throws UnderAgeException, IDNumberException {
 		boolean added = false;
 		contAttempts++;
 		Person newPerson = new Person(documentationType, id);
-		String digit = Integer.toString(id);
-		digit = digit.substring((digit.length()-2), (digit.length()-1));
+		String digit = id.substring((id.length()-2), (id.length()-1));
 		int penultimate = Integer.parseInt(digit);
 		int dayOfMonth = LocalDate.now().getDayOfMonth();
 		if(!people.contains(newPerson)) {

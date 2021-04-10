@@ -15,9 +15,9 @@ public class MiniMarketTest {
 	
 	public void setupScenary2() throws UnderAgeException, IDNumberException {
 		m = new MiniMarket();
-		m.addPerson(2, 1058327880);
-		m.addPerson(3, 1001832762);
-		m.addPerson(4, 1004872786);
+		m.addPerson(2, "1058327880");
+		m.addPerson(3, "1001832762");
+		m.addPerson(4, "1004872786");
 	}
 	
 	@Test
@@ -25,7 +25,7 @@ public class MiniMarketTest {
 		setupScenary1();
 		
 		int type = 2;
-		int number = 1005865627;
+		String number = "1005865627";
 		
 		boolean added = m.addPerson(type, number);
 		assertTrue(added);
@@ -43,7 +43,7 @@ public class MiniMarketTest {
 		setupScenary2();
 		
 		int type = 4;
-		int number = 1026857649;
+		String number = "1026857649";
 		
 		boolean added = m.addPerson(type, number);
 		assertTrue(added);
@@ -61,7 +61,7 @@ public class MiniMarketTest {
 		setupScenary1();
 		
 		int type = 1;
-		int number = 1002839617;
+		String number = "1002839617";
 		
 		try {
 			m.addPerson(type, number);
@@ -82,7 +82,7 @@ public class MiniMarketTest {
 		setupScenary1();
 		
 		int type = 3;
-		int number = 1008867657;
+		String number = "1008867657";
 		
 		try {
 			m.addPerson(type, number);

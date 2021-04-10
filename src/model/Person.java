@@ -3,12 +3,12 @@ package model;
 public class Person {
 	
 	private int type;
-	private int number;
+	private String number;
 	/**
 	 * @param type
 	 * @param number
 	 */
-	public Person(int type, int number) {
+	public Person(int type, String number) {
 		this.type = type;
 		this.number = number;
 	}
@@ -17,7 +17,7 @@ public class Person {
 		return type;
 	}
 
-	public int getNumber() {
+	public String getNumber() {
 		return number;
 	}
 }

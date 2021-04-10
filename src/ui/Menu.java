@@ -30,41 +30,45 @@ public class Menu {
 		return choice;
 	}
 	
-	public String readAddPerson() throws NumberFormatException, IOException {
+	public void readAddPerson() throws NumberFormatException, IOException {
 		System.out.println("Elige el tipo de documento de identificación:\n"+"(1) Tarjeta de Identidad\n"+"(2) Cédula de Ciudadanía\n"+"(3) Pasaporte\n"+"(4) Cédula de Extranjería");
 		int type = Integer.parseInt(br.readLine());
 		System.out.println("Digite el numero de identificación:");
-		int id = Integer.parseInt(br.readLine());
+		String id = br.readLine();
+		
 		boolean added = false;
 		try {
 			added = miniMarket.addPerson(type, id);
+			System.out.println(added? "Se ha registrado exitosamente el ingreso" : "");
 		} catch (UnderAgeException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.out.println("No se permite el ingreso a menores de edad");
 		} catch (IDNumberException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.out.println("La identificación ingresada NO cumple con el pico y cédula de la normativa gubernamental");
 		}
-		return added? "Se ha registrado exitosamente el ingreso" : "No ha sido posible registrar el ingreso";
 	}
 	
 	public void doOperation(int choice) {
 		switch(choice) {
 			case ADD_PERSON:
-			try {
-				System.out.println(readAddPerson());
-			} catch (NumberFormatException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+				try {
+					readAddPerson();
+				} catch (NumberFormatException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				break;
 			case SHOW_TOTAL_PEOPLE:
 				System.out.println(miniMarket.getContAttempts()+" personas han intentado ingresar al minimercado.");
 				break;
 			case EXIT:
+				System.out.println("¡Adiós!");
 				break;
 			default:
 				System.out.println("Opcion invalida, repita nuevamente");
