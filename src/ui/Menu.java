@@ -31,9 +31,9 @@ public class Menu {
 	}
 	
 	public void readAddPerson() throws NumberFormatException, IOException {
-		System.out.println("Elige el tipo de documento de identificación:\n"+"(1) Tarjeta de Identidad\n"+"(2) Cédula de Ciudadanía\n"+"(3) Pasaporte\n"+"(4) Cédula de Extranjería");
+		System.out.println("Elige el tipo de documento de identificacion:\n"+"(1) Tarjeta de Identidad\n"+"(2) Cedula de Ciudadania\n"+"(3) Pasaporte\n"+"(4) Cedula de Extranjeria");
 		int type = Integer.parseInt(br.readLine());
-		System.out.println("Digite el numero de identificación:");
+		System.out.println("Digite el numero de identificacion:");
 		String id = br.readLine();
 		
 		boolean added = false;
@@ -47,7 +47,7 @@ public class Menu {
 		} catch (IDNumberException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			System.out.println("La identificación ingresada NO cumple con el pico y cédula de la normativa gubernamental");
+			System.out.println("La identificacion ingresada NO cumple con el pico y cedula de la normativa gubernamental");
 		}
 	}
 	
@@ -68,7 +68,7 @@ public class Menu {
 				System.out.println(miniMarket.getContAttempts()+" personas han intentado ingresar al minimercado.");
 				break;
 			case EXIT:
-				System.out.println("¡Adiós!");
+				System.out.println("¡Adios!");
 				break;
 			default:
 				System.out.println("Opcion invalida, repita nuevamente");
